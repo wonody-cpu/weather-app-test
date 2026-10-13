@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="도시 이름으로 현재 날씨를 확인하세요." />
+    <title>Weather Now — 지금, 그곳의 날씨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <main class="shell">
+      <header class="brand" aria-label="Weather Now">
+        <span class="brand-mark" aria-hidden="true">◌</span>
+        <span>WEATHER NOW</span>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">LIVE CONDITIONS · ANYWHERE</p>
+        <h1>지금, 그곳의<br /><em>날씨는 어떤가요?</em></h1>
+        <p class="intro">도시를 검색하면 현재 기온과 체감 날씨를<br class="desktop-break" /> 한눈에 확인할 수 있어요.</p>
+
+        <form id="weather-form" class="search" novalidate>
+          <label class="sr-only" for="city-input">도시 이름</label>
+          <span class="search-icon" aria-hidden="true"></span>
+          <input id="city-input" name="city" type="search" placeholder="예: 서울, Tokyo, Paris" minlength="2" maxlength="80" autocomplete="off" required />
+          <button type="submit">
+            <span>날씨 확인</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+        </form>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="weather-card" class="weather-card" aria-live="polite" hidden>
+        <div class="card-top">
+          <div>
+            <p id="location-detail" class="location-detail"></p>
+            <h2 id="location-name"></h2>
+            <p id="local-time" class="local-time"></p>
+          </div>
+          <div id="weather-visual" class="weather-visual" aria-hidden="true"></div>
+        </div>
+
+        <div class="temperature-row">
+          <p class="temperature"><span id="temperature"></span><sup>°</sup></p>
+          <div>
+            <p id="condition" class="condition"></p>
+            <p class="feels-like">체감 <span id="feels-like"></span>°</p>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <span class="metric-icon" aria-hidden="true">⌁</span>
+            <div><span>바람</span><strong id="wind"></strong></div>
+          </div>
+          <div class="metric">
+            <span class="metric-icon" aria-hidden="true">◒</span>
+            <div><span>습도</span><strong id="humidity"></strong></div>
+          </div>
+          <div class="metric">
+            <span class="metric-icon" aria-hidden="true">⌖</span>
+            <div><span>현지 시간</span><strong id="observed-time"></strong></div>
+          </div>
+        </div>
+      </section>
+
+      <footer>DATA BY <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">OPEN-METEO</a> · NO API KEY REQUIRED</footer>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
