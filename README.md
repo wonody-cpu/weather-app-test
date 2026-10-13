@@ -10,7 +10,12 @@ weather/
 │   ├── index.html
 │   ├── styles.css
 │   └── app.js
-├── server.js           # 백엔드 및 정적 파일 서버
+├── api/
+│   └── weather.mjs     # Vercel 서버리스 함수
+├── lib/
+│   └── weather.js      # 공통 날씨 조회 로직
+├── server.js           # 로컬 백엔드 및 정적 파일 서버
+├── vercel.json         # Vercel 배포 설정
 ├── package.json
 └── README.md
 ```
